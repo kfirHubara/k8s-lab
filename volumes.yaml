@@ -19,3 +19,5 @@ spec:
     hostPath:
       # directory location on host
       path: /tmp/files
+  nodeSelector:
+    env: prod
