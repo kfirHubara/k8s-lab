@@ -20,4 +20,4 @@ spec:
     spec:
       containers:
       - name: some-application
-            image: somerepo/someapp:2
+        image: somerepo/someapp:2
