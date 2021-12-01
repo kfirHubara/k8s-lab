@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: hare-deployment
+  name: hare-statefulset
 spec:
   selector:
     matchLabels:
@@ -17,6 +17,7 @@ spec:
           image: supergiantkir/animals:hare
           ports:
             - containerPort: 80
+  serviceName: "hare"
 ---
 kind: Service      # Create new service
 apiVersion: v1
@@ -24,7 +25,7 @@ metadata:
   name: hare-service # Name of the service (DNS - RFC 2929)
 spec:
   selector:
-    app: hare    # Run on any pod with label - app:myapp
+    statefulset.kubernetes.io/pod-name: hare-statefulset    # Run on any pod with label - app:myapp
   ports:          # Map incoming port to target port
     - name: hare-port    # Setting multiple ports listen
       protocol: TCP
