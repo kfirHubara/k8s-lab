@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hare-deployment
+spec:
+  selector:
+    matchLabels:
+      app: hare
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hare
+    spec:
+      containers:
+        - name: hare
+          image: supergiantkir/animals:hare
+          ports:
+            - containerPort: 80
+---
+kind: Service      # Create new service
+apiVersion: v1
+metadata:
+  name: hare-service # Name of the service (DNS - RFC 2929)
+spec:
+  selector:
+    app: hare    # Run on any pod with label - app:myapp
+  ports:          # Map incoming port to target port
+    - name: hare-port    # Setting multiple ports listen
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+---
