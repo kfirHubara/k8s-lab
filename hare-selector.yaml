@@ -17,7 +17,7 @@ spec:
           image: supergiantkir/animals:hare
           ports:
             - containerPort: 80
-  serviceName: "hare"
+  serviceName: "hare-service"
 ---
 kind: Service      # Create new service
 apiVersion: v1
