@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: hare
-  replicas: 2
+  replicas: 3
   template:
     metadata:
       labels:
@@ -23,9 +23,11 @@ kind: Service      # Create new service
 apiVersion: v1
 metadata:
   name: hare-service # Name of the service (DNS - RFC 2929)
+  labels:
+    app: hare
 spec:
   selector:
-    statefulset.kubernetes.io/pod-name: hare-statefulset    # Run on any pod with label - app:myapp
+    statefulset.kubernetes.io/pod-name: hare-statefulset-0   # Run on any pod with label - app:myapp
   ports:          # Map incoming port to target port
     - name: hare-port    # Setting multiple ports listen
       protocol: TCP
