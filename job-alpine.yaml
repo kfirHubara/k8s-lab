@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+        - name: alpine
+          image: alpine:latest
+          command: ["echo", "kfir"]
+      restartPolicy: Never
+  backoffLimit: 4
+
