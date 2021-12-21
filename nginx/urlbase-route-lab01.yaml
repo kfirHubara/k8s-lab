@@ -15,7 +15,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - http:
+    - host: 46.51.138.104.nip.io
+      http:
         paths:
           - path: /bear(/|$)(.*)
             pathType: Prefix
@@ -31,4 +32,3 @@ spec:
                 name: moose-service
                 port:
                   number: 80
-    - host: 46.51.138.104.nip.io
