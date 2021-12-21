@@ -31,3 +31,4 @@ spec:
                 name: moose-service
                 port:
                   number: 80
+    - host: 46.51.138.104.nip.io
