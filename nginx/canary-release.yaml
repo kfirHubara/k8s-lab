@@ -26,25 +26,22 @@ spec:
                   number: 80
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-canary-v1
-  annotations:
-    nginx.ingress.kubernetes.io/canary: "true"
-
-
-  #    nginx.ingress.kubernetes.io/rewrite-target: /$2
-spec:
-  ingressClassName: nginx
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-
-            backend:
-              service:
-                name: moose-service
-                port:
-                  number: 80
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: ingress-canary-v1
+#
+#  #    nginx.ingress.kubernetes.io/rewrite-target: /$2
+#spec:
+#  ingressClassName: nginx
+#  rules:
+#    - http:
+#        paths:
+#          - path: /
+#            pathType: Prefix
+#
+#            backend:
+#              service:
+#                name: moose-service
+#                port:
+#                  number: 80
