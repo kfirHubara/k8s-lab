@@ -24,19 +24,3 @@ spec:
                 name: bear-service
                 port:
                   number: 80
-
----
-  #    nginx.ingress.kubernetes.io/rewrite-target: /$2
-spec:
-  ingressClassName: nginx
-  rules:
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-
-            backend:
-              service:
-                name: moose-service
-                port:
-                  number: 80
